@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  cripto-db:
+    container_name: 'cripto-db'
+    image: mysql:5.7
+    restart: always
+    volumes:
+      - ./MySQL:/var/lib/mysql
+      - ./my.cnf:/etc/mysql/my.cnf
+    ports: 
+      - '3309:3306'
+    environment: 
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "cripto"
